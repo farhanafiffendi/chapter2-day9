@@ -95,10 +95,17 @@ app.get('/blog-detail/:id', function(req, res) {
             if (err) throw err
             done();
 
-            let data = result.rows[0]
-            console.log(data);
+            let data = result.rows
 
-            res.render('blog-detail', {blogs: data})
+            databaru = data.map(function(item){
+                return{
+                    ...item,
+                    duration: getDate(item.inputstart , item.inputend)
+                }
+            })
+            console.log(databaru);
+
+            res.render('blog-detail', {blogs: databaru[0]})
         })
     })
 })
@@ -134,6 +141,8 @@ app.get ('/update-blog/:id', (req, res) =>{
             if (err) throw err
             done()
             let data = result.rows[0]
+
+            let databaru = 
 
             // console.log(data);
             res.render('update-blog', {edit: data, id})
