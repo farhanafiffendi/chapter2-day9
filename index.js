@@ -34,6 +34,7 @@ app.get('/', function(req, res) {
                 return{
                     ...item,
                     isLogin: isLogin,
+                    description: item.description.slice(0, 150) + '....',
                     duration: getDate(item.inputstart , item.inputend)
                 }
             })
@@ -141,8 +142,6 @@ app.get ('/update-blog/:id', (req, res) =>{
             if (err) throw err
             done()
             let data = result.rows[0]
-
-            let databaru = 
 
             // console.log(data);
             res.render('update-blog', {edit: data, id})

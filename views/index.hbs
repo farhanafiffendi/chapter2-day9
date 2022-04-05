@@ -97,11 +97,11 @@
                         alt="" />
                 </div>
                 <div class="blog-content">
-                    <h4>
-                        <a href="/blog-detail/{{this.id}}" target="_blank">{{this.project}}</a><br>
+                    <h4 style="text-align: center;">
+                       {{this.project}}
                     </h4>
                     <p style="color: gray;">{{this.duration}}</p>
-                    <div>{{this.description}}</div>
+                    <div> {{this.description}} <a href="/blog-detail/{{this.id}}" target="_blank">View More</a></div><br>
                     {{#each technologies}}
                     <i class="{{this}}" style="font-size: 30px;"></i>
                     <i class="{{this.node}}" style="font-size: 30px;"></i>
